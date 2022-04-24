@@ -1,0 +1,40 @@
+@import '~antd/dist/antd.css';
+@bgcolor: #efefef;
+
+body{
+    font-family: "微软雅黑";
+    font-size: 14px;
+    color: #333;
+    background: @bgcolor;
+}
+#app{
+    height:100vh;
+
+    
+    .container{
+        height: calc(100vh - 140px);
+        display: flex; 
+        .container_box{
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex:5;
+            box-sizing: border-box;
+
+        }
+        .container_content{
+            position:relative;
+            overflow-y: scroll;
+            height: calc(100vh - 210px);
+        }   
+    }
+    footer{
+        height: 70px;
+        background-color: #001529;
+        line-height: 70px;
+        color:#fff;
+        text-align: center;
+    }
+}
+
+

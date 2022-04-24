@@ -1,5 +1,5 @@
 import App from '../App';
-import List from '../pages/List';
+import Listlist from '../pages/Listlist';
 import Login from '../pages/Login';
 import Edit from '../pages/Edit';
 import Register from '../pages/Register';
@@ -9,7 +9,7 @@ const BaseRouter = ()=>(
     <Router>
         <Routes>
             <Route path='/' element={<App />}>
-                <Route path='/list' element={<List />}></Route>
+                <Route path='/list' element={<Listlist />}></Route>
                 <Route path='/edit' element={<Edit />}></Route>
                 <Route path='/means' element={<Means />}></Route>
             </Route>

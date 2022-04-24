@@ -1,11 +1,23 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd';  
+import { Form, Input, Button, message } from 'antd';  
 import './less/Register.css' ;
 import { UserOutlined,LockOutlined } from '@ant-design/icons'; 
 import logoImg from '../assets/logo.png'
-import{Link} from 'react-router-dom'
+import{Link, useNavigate} from 'react-router-dom'
+import { RegisterApi } from '../request/api';
 export default function Register() {
+  const navigate = useNavigate()
   const onFinish = (values) => {
+    RegisterApi({
+      username:values.username,
+      password:values.password
+    }).then(res=>{
+      if(res.errCode===0){
+        message.success(res.message)
+        setTimeout(()=>navigate('/login'),1500)
+      }
+      console.log(res)
+    })
     console.log('Success:', values);
   };
 
@@ -76,7 +88,7 @@ export default function Register() {
     </Form.Item>
     <Form.Item>
       <Button type="primary" htmlType="submit" block >
-        登录
+        注册
       </Button>
     </Form.Item>
   </Form>

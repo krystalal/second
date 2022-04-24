@@ -1,11 +1,31 @@
 import React from 'react'
-import { Form, Input, Button } from 'antd';  
+import { Form, Input, Button, message } from 'antd';  
 import './less/Login.css' ;
 import { UserOutlined,KeyOutlined } from '@ant-design/icons'; 
 import logoImg from '../assets/logo.png'
-import{Link} from 'react-router-dom'
+import{Link, useNavigate} from 'react-router-dom'
+import { LoginApi } from '../request/api';
 export default function Login() {
+  const navigate = useNavigate()
     const onFinish = (values) => {
+       LoginApi({
+         username:values.username,
+         password:values.password
+       }).then(res => {
+         if(res.errCode===0){
+           message.success(res.message)
+           //存储数据
+           localStorage.setItem('avatar',res.data.avatar)
+           localStorage.setItem('editable',res.data.editable)
+           localStorage.setItem('player',res.data.player)
+           localStorage.setItem('cms-token',res.data['cms-token'])
+           localStorage.setItem('username',res.data.username)
+            setTimeout(()=>{navigate('/')},1500)
+         }
+         else{
+           message.error(res.message)
+         }
+       })
         console.log('Success:', values);
       };
     

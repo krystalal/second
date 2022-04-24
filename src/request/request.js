@@ -2,9 +2,10 @@ import axios from 'axios'
 
 // 配置项
 const axiosOption = {
-    baseURL: 'http://47.93.114.103:6688/manage',
-    timeout: 5000
+  baseURL: '/api',
+  timeout: 5000
 }
+
 
 // 创建一个单例
 const instance = axios.create(axiosOption);
