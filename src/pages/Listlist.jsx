@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 export default function Listlist() {
   const navigate = useNavigate()
   const [list,setList]=useState([])
-  const [pageSize,setPageSize]=useState(10)
+  //const [pageSize,setPageSize]=useState(10)
   const [update,setUpdate]= useState(1)
   const [total,setTotal]=useState(0)
   const [current,setCurrent]=useState(0)
